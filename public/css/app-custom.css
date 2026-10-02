@@ -1,0 +1,92 @@
+/* ============================================
+   Layout dasar: sidebar tetap + konten scrollable
+   ============================================ */
+body {
+    background-color: #f4f6f9;
+}
+
+#wrapper {
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 240px;
+    min-width: 240px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar .nav-link {
+    border-radius: .5rem;
+    padding: .6rem .8rem;
+    margin-bottom: .15rem;
+    opacity: .85;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, .08);
+    opacity: 1;
+}
+
+.sidebar .nav-link.active {
+    background-color: #0d6efd;
+    opacity: 1;
+}
+
+#page-content {
+    min-width: 0; /* agar konten tabel bisa scroll horizontal, tidak mendorong layout */
+}
+
+/* Sidebar collapsible di layar kecil */
+@media (max-width: 991.98px) {
+    .sidebar {
+        position: fixed;
+        left: -240px;
+        z-index: 1040;
+        transition: left .2s ease-in-out;
+    }
+    .sidebar.show {
+        left: 0;
+    }
+}
+
+/* ============================================
+   Kartu statistik dashboard
+   ============================================ */
+.card-stat {
+    border: none;
+    border-radius: .75rem;
+    box-shadow: 0 .125rem .5rem rgba(0,0,0,.06);
+}
+
+.card-stat .icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+/* Preview foto sebelum upload */
+#previewFoto {
+    max-width: 220px;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: .5rem;
+    display: none;
+}
+
+/* Empty state */
+.empty-state {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #6c757d;
+}
+.empty-state i {
+    font-size: 3rem;
+    opacity: .5;
+}
